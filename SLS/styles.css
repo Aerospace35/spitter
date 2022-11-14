@@ -1,0 +1,80 @@
+/* --- Base --- */
+html {
+  background-color: #CB7944;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Countdown Clock Styles */
+.countdown-clock .countdown-container {
+  border-spacing: .5em;
+  border-collapse: separate;
+  display: table;
+  margin: .5em auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.countdown-clock .time {
+  background-color: #222;
+  border-radius: 0;
+  display: table-cell;
+  min-width: 50px;
+  padding: 1em .5em;
+  position: relative;
+  text-align: center;
+}
+
+.countdown-clock .count {
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: bold;
+  width: 100%;
+}
+
+.countdown-clock .label {
+  color: #fff;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .countdown-clock .countdown-container {
+    border-spacing: 1em;
+    margin: 1em auto;
+    width: 100%;
+  }
+  .countdown-clock .time {
+    min-width: 100px;
+    padding: 1em;
+  }
+  .countdown-clock .count {
+    font-size: 2.5em;
+    line-height: 1.2;
+  }
+  .countdown-clock .label {
+    font-size: 15px;
+  }
+}

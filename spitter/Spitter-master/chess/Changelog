@@ -1,0 +1,261 @@
+1.4:
+- changed design to allow playing on mobiles (2019/01/06 MS)
+- fixed browsing mode (didn't work with newer PHP versions) (2016/06/25 MS) 
+
+1.3.5:
+- begin of php sections is now properly marked to work with newer php
+  versions (2016/06/11 MS)
+
+1.3.4:
+- fixed bugs in sending email (11/01/06 Martin Korous)
+
+1.3.3:
+- added option to e-mail forgotten password (10/12/26 Martin Korous)
+- utf8 encoding enabled for special characters (10/12/26 Martin Korous)
+- notify white player by mail if black started game (10/12/26 Martin Korous)
+- show last move of opponent for 2 secs (10/12/25 Martin Korous)
+- workaround bug in accessing array $GLOBALS (10/12/25 Martin Korous)
+
+1.3.2:
+- fixed bug in stalemate detection (08/03/29 MS)
+- added confirmation for accepting/refusing a draw (08/03/29 MS)
+- arranged buttons better to prevent accidental resignation (08/02/22 MS)
+
+1.3.1:
+- highlight any saved move on reloading the board page (08/02/16 MS)
+- show player names instead of full game id in browser title (08/02/16 MS)
+- replaced move edit with action button row (08/02/16 MS)
+- updated README: keep original directory names when renaming resources for
+  security reasons (08/01/08 FB)
+
+1.3:
+- highlight source/destination tile of move (07/12/26 MS)
+- updated security information in README (07/12/25 MS)
+- user related data stored in new directory occ-data/users (07/12/25 MS)
+- write access locking (07/12/25 MS)
+- accurate page titles to distinguish multiple browser tabs (07/12/24 MS)
+- more contrast for text (07/12/24 MS)
+- bug fixed in search page (own username could not be selected) (07/12/17 MS)
+
+1.3beta:
+- major redesign of source code (07/11-07/12 MS)
+- added release info element to login screen
+- updated documentation (README and help)
+- round don't floor rating values
+- build-time for each page
+- rankings may now be created by all criteria not just rating
+- enhanced themability (and renamed wcg to default)
+- deleting (now aborting) a game does not count as win
+- removed forum and PGN viewing 
+- rearranged components of chessboard page
+- simplified some text messages (07/10/21 MS)
+
+1.2.9:
+- don't show link to section 'Input Mode' for archived games (07/04/28 MS)
+- new section "New Game" for starting games (07/04/28 MS)
+- do not allow HTML tags in comments (07/04/28 MS)
+- fixed some typos and improved some descriptions (07/04/28 MS)
+- show old comment to remember what a conversation is about (07/04/28 MS)
+
+1.2.8:
+- added activity column to rankings (06/12/25 MS)
+- underline winner of completed game (06/12/24 MS)
+- renamed section Overview to MyGames (06/05/31 MS)
+- removed section MyNotes (06/05/31 MS)
+- fixed Top links in section Help (06/05/31 MS)
+- updated README about e-mail notification (06/05/31 MS)
+
+1.2.7:
+- email notification is more verbose (06/05/13 WWP)
+- the black player's name is loaded correctly from a PGN file even if
+  there is a '[BlackElo ...' entry (05/11/20 AN)
+
+1.2.6:
+- notes encryption safe against random backslashes
+- chatter is written when accepting/refusing a draw
+
+1.2.5:
+- chat message can be entered when opening a game
+- added optional mail notification (thanks to Lars)
+- added small notice to the README about which files to keep when 
+  updating OCC 
+
+1.2.4:
+- doubled grace time: it now takes four weeks for the delete option
+  to appear
+- the delete option is now explained in the help
+- fixed security issue: the theme name, changeable by adding it to e.g.
+  chess.php can now only contain letters, digits, underscores and 
+  dashes (previously, an exploit of the include function was possible)
+
+1.2.3:
+- dots are allowed in the username
+- bug fixed: castling will work after undoing a king or rook move
+  if it was allowed before
+
+1.2.2:
+- bug fixed: en-passant was not properly recognized in the history 
+  browser when '-' was not manually but automatically replaced with 
+  'x'
+
+1.2.1:
+- a game may be deleted, if the opponent has not moved for more 
+  than two weeks (if it moved at least once, the game is counted
+  as win)
+- games are listed sorted by last move date: in section 'My
+  Games' the oldest games are listed first, for a search the
+  most recent games are listed first (this way you handle your
+  open games equally, even if you do not move in all games 
+  every time you log in)
+
+1.2:
+- completed the stalemate check: it now detects whether a chessman
+  is bound by check or not
+- move result message starts with a captial letter
+- move result message now contains a '... CHECK!' if you give
+  check to your opponent
+- the manual replacement of '-' with 'x' in the command for an 
+  en-passant move is no longer required
+- added an admin flag to allow deletion of topics and messages
+  in the forum
+- added a simple forum
+
+1.1.2:
+- bug fixed, that turned black king to white when the black player
+  undid a long castling O-O-O (thanks to Tim Miller)
+
+1.1.1:
+- user list for challenge and search is again assembled from the
+  accounts file (as stats are now created automatically) but the
+  old implementation is still there as a comment
+- notes may now be made while viewing the chessboard (the old section
+  has become obsolete)
+- fixed a bug in the undo option: when DrawRefused was undone, player
+  could move out of sequence instead of deciding whether to accept
+  or refuse again
+- fixed a bug in the checkmate test: the algorithm did not check
+  whether a chessman, which could move by the basic rules and block 
+  a check, is already bound (and thus cannot move because king would
+  be again in check)
+- changed rating system to reflect Elo ratings (K is computed
+  differently)
+- renamed 'Round' to 'Move' on chess board
+- session timeout explicitly set to three hours
+
+1.1:
+- accounts.php is no longer used to build the user list
+- section 'My Notes' added
+- PGN viewer for simple PGN files
+- renamed pgn.php to pgnformat.php
+- code cleanups
+- README updated
+
+1.0.12:
+- the last move that finishes a game may not be undone, otherwise
+  you could tamper with the statistics by winning over and over
+  again
+- fixed a bug that turned any move into resignation
+
+1.0.11:
+- a finished game is always archived
+- command '---' has been replaced with 'resign'
+- online help updated 
+- removed categories and added a search function to find
+  any open or archived games of other users
+- rankings are now calculated by one rating formula
+- removed user restrictions
+
+1.0.10:
+- added undo function for the very last move; this option expires
+  after twenty minutes or when the opponent moves
+- bug fixed: if a black pawn was promoted on tile a1, the history
+  browser did not recognize this, but moved the pawn to a1 
+  (knight), b1 (bishop), c1 (rook) or d1 (queen)
+
+1.0.9:
+- Kg8, Kg1, Kc8, Kc1 are no longer interpreted as castling 
+
+1.0.8:
+- fixed a bug in the checkmate test (if two chessmen in a row 
+  threatened the king the test failed though the first chessman
+  could be taken blocking the second one)
+
+1.0.7:
+- chess board frame color, chess board coordinate color, credits
+  for the chessmen icons and the width of the main table are now
+  defined in a file called images/wcg/board.php 
+- only N,B,R,Q are allowed as upgrade identifiers for a pawn
+  entering the last file
+- degenerated pawn attack [a-h][a-h] is understood by history
+  browser
+- a two-step king move is interpreted as castling command if the 
+  destination would be his destination after castling
+- the correct stats are chosen for the mainpage header (previously
+  if a username equalled the first characters of another username
+  the wrong stats where chosen)
+
+1.0.6:
+- games can be displayed as plain PGN format
+- renamed Move to Round in the game header
+- added a javascript-based history browser
+- fixed a bug that showed the 'Archive' button for white player
+  after game was already archived  
+- security check added to prevent exploit by gamefile variable
+
+1.0.5:
+- fixed a bug that allowed a king to escape a check by castling
+- the very last move is additionally displayed in full notation
+- changed chess coordinates from upper to lower case
+- castling info is no longer displayed
+- the move history is always in the normal chess notation
+- only x is now accepted to indicate an attack (previously :
+  was allowed as well)
+- fixed a bug that disintegrated a pawn when entering last file
+  by full move command
+- added some Javascript to allow move input by clicking a chessman
+
+1.0.4:
+- pawns can become either knight,bishop,rook or queen when entering 
+  the last file
+- added a user ranking 
+- names of resources (users,games,archive) can be renamed for
+  security reasons
+- improved handling of POST and GET variables to make it work
+  with PHP >= 4.3
+- switched colors for chessmen imbalance
+- added command DELETE which allows to delete a game without 
+  affecting the statistics before any actual move was performed from 
+  your side
+- fixed a bug which caused a red light when it was the user's turn
+  to archive or delete a finished game from the 'My Games' list
+- if a game is over the status will tell the outcome of it
+- updated help with a consistent notation for pawn attacks
+- removed TODO-rule where king might be left checked when
+  the opponent king is checked in the same instance
+
+1.0.3:
+- added P=Pawn to the list of chessmen identifiers in help.php
+- logout works again
+
+1.0.2:
+- an appropriate message is displayed when viewing games the
+  user does not participate in
+- apostrophes in a comment no longer create backslashes
+- statistics are updated correctly even if one username is
+  completely contained in another username as beginning string 
+- viewing games of friends now works for users with friend
+  restrictions too
+- reduced use of sessions to one variable
+
+1.0.1:
+- if the number if killed chessmen differs for both players the
+  imbalance is displayed at the right-hand side of the board
+- added date of last move to game info
+- re-arranged mainpage to allow viewing games of friends
+- archive button will not show up when game was already archived
+- updated README with a hint about how to fix screwed PHP sessions
+- updated help with explanation about pawn move notation
+- added missing style sheet
+
+1.0:
+- initial public release

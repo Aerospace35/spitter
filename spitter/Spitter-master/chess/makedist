@@ -1,0 +1,40 @@
+#!/bin/sh
+version=$1
+pkg=occ-$version
+
+if [ -z "$version" ]; then
+	echo "Version missing!"
+	exit 1
+fi
+
+# Build package structure
+mkdir $pkg
+mkdir $pkg/images
+mkdir $pkg/occ-data
+mkdir $pkg/occ-data/games
+mkdir $pkg/occ-data/archive
+mkdir $pkg/occ-data/users
+mkdir $pkg/occ-data/users/notes
+mkdir $pkg/occ-data/users/lhistory
+mkdir $pkg/tmp
+
+# Copy data
+cp -R images/default $pkg/images/default
+find $pkg/images | grep \.svn | xargs rm -fr
+cp *.php *.js COPYING README Changelog makedist $pkg
+cp occ-data/users/accounts.php $pkg/occ-data/users
+touch $pkg/occ-data/users/stats
+rm -f $pkg/test*.php
+
+# Adjust properties
+chmod -R 777 $pkg/occ-data $pkg/tmp
+chmod 644 $pkg/occ-data/users/accounts.php
+chmod 666 $pkg/occ-data/users/stats
+
+# Tarball it
+tar -c $pkg > $pkg.tar
+gzip $pkg.tar
+
+# Remove temp directory
+rm -R $pkg
+

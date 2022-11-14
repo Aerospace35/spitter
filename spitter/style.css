@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/vt323/v12/pxiKyp0ihIEF2isfFJU.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body{margin:0; padding: 0; font-family: "VT323"; font-size: 18px; background: #000000; overflow: hidden;}
+*{font-family: "VT323"; font-size: 18px; color:#00FF33; }
+.main{max-width:1024px; width:100%; margin:auto;}
+.header{background: #000000}
+.header h1{max-width:1024px; width:100%; margin:0 auto; padding:10px 0; font-size: 20px; color: #00FF33; text-align: center; font-weight: 300}
+.userscreen{margin: auto; text-align: center; margin-top: 24%}
+.input-user {
+  padding: 10px;
+  border: solid 2px #00FF33;
+  color: #00FF33;
+  background-color: #000000;
+  transition: border 0.3s;
+  width:250px;
+}
+
+.btn {
+	background:linear-gradient(to bottom, #000000 5%, #000000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00FF33', endColorstr='#00FF33',GradientType=0);
+	background-color:#637aad;
+	border:1px solid #00FF33;
+	display:inline-block;
+	cursor:pointer;
+	color:#00FF33;
+	font-family: 'VT323';
+	font-size:16px;
+	padding:6px 12px;
+	text-decoration:none;
+}
+.btn:active {
+	position:relative;
+	top:1px;
+}
+
+.btn-user{padding:9px 30px; position: relative; top: 0px; font-size: 16px; font-weight: 300}
+
+#result{max-width:1024px; width:100%; padding:10px; background: #000000; max-height: 80%; overflow-y:auto;}
+
+.chatcontrols{position: fixed; bottom: 0; width: 100%}
+.chatcontrols form{margin: 0}
+#chatbox 
+{
+    background: none repeat scroll 0 0 #000000;
+    border: 1px solid #00FF33;
+    border-radius: 2px 2px 2px 2px;
+    color: #00FF33;
+    height: 35px;
+    margin-top: 10px;
+    outline: medium none;
+    padding: 10px 10px;
+    width: 65.5%;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 300
+}
+#chatbox:focus{
+    background: none repeat scroll 0 0 black;
+    border-color: #00FF33;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
+    color: #00FF33;
+ 	content:"";
+}
+
+.btn-send{font-size: 20px; padding: 15px; font-weight: 300}
+.btn-clear{padding: 15px 25px; font-size: 20px; font-weight: 300}
+.logout{float: right; color: #00FF33; text-decoration: none; font-size: 15px}

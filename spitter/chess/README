@@ -1,0 +1,119 @@
+
+                           Online Chess Club
+			   -----------------
+
+
+***********
+Description
+***********
+
+OCC is a PHP chess game published under GNU GPL. It allows you to play any 
+number of chess games simultaneously. There is a rating system for users which
+is based on Elo's formula. Further on, OCC allows you to browse through the 
+move history of any game and to export it as PGN format. It is possible to 
+enter a chat message along with your move to talk with your friends. Moves may
+be undone for a short while and games that are idle too long may be aborted.
+DETAILED INFORMATION ON HOW TO PLAY IS PROVIDED BY AN IN-GAME HELP SECTION.
+
+OCC is not intended for realtime games (well, you could have this by pressing
+the Refresh button all the time but this ain't nice, is it?) and other games
+may suit this purpose better. It is rather for people who don't have the time 
+to play a game in one go. Therefore, in OCC there is no timelimit and you may
+move whenever you find a few minutes to login. To not forget anything important
+you may take down notes for each game. Thus it may take a while to finish a 
+game... OCC is not intended for people in a hurry. And yes, I see the irony
+behind this. ;-)
+
+*****************************
+Installation and Requirements
+*****************************
+
+To setup a chess server you require a PHP-ready web server and that's it. OCC 
+uses files to store the game data and user statistics. User passwords are 
+stored within a PHP script and can be updated as described further below. 
+Extract the OCC source to a path known to your web server, add some friends 
+and tell them the URL of the game and their logins. To play the game all you 
+need is a plain web browser.
+
+The web server user (usually www-data) must have read/write access to the
+directories occ-data and tmp (e.g., run 'chmod -R a+rw occ-data' for full 
+access to anyone).
+
+You may set $releaseinfo at top of index.php to anything you like. This text 
+is then displayed at the login page as general information for your users. This 
+way, you can announce updates or anything else you consider important. Remember
+to backup this info before any update!
+
+IF YOUR SERVER USES LOAD BALANCING OR ANYTHING THAT CAUSES SESSION VARIABLES 
+TO BE MIXED UP YOU CAN PROVIDE A FIXED LOCATION (PHYSICAL DIRECTORY) IN 
+session.php!
+
+*******
+Updates
+*******
+
+Whenever you update your copy of OCC remember to backup the data directory
+occ-data and session.php (if you changed it) first.
+
+IMPORTANT NOTE FOR UPDATE TO v1.3:
+All user related data is now stored in one new directory occ-data/users.
+The previous statistics file occ-data/users has been more properly renamed to
+occ-data/users/stats. So if you update an older version you must copy and
+rename this file. Also accounts.php, occ-data/lhistory, occ-data/notes must be
+moved to occ-data/users. Consequently, there is now only one ressource variable
+in io.php named $res_users.
+
+****************
+Adding New Users
+****************
+
+To add a new user simply add a line to the $passwords array in 
+occ-data/users/accounts.php:
+  "USER" => "PASSWORD",
+The last entry must not have a comma. Just tell your friend the username and 
+password but note that both are case-sensitive. To notify a user whenever one 
+of its opponents has moved add a new line to array $mail_addresses:
+  "USER" => "valid e-mail"
+
+********
+Security
+********
+
+Sensitive data is stored in PHP files (e.g., account info and notes). Thus, 
+it is not possible to read this data via a web browser (opposite to user stats
+and game files which are available in plain text) since PHP will always return
+an empty page. 
+
+If you want to prevent reading any data you may append cryptic extensions 
+to the users, games and archive directory in occ-data (e.g., users.cvz7fq794gf) 
+which are hard to guess and adjust the resource variables ($res_users, 
+$res_games and $res_archive) at top of io.php.
+
+If you run the chess server on a multi-user system further steps are required
+to prevent other users from tampering with occ-data. First, you rename the
+directories as described above. Then you restrict access to www-data only
+(requires root permissions) with the following commands:
+	chown -R www-data.www-data occ-data
+	chmod 711 occ-data
+	chown www-data.www-data io.php
+	chmod 600 io.php
+Obviously, if another user can locally create PHP scripts and run them via the 
+web server (e.g., if the web server exports a public_html directory for each 
+user) it could easily read io.php by script getting write access to the game
+data. Therefore, it would be crucial to configure the web server in a way that
+no user other than root could read the real path of the WWW root so that some
+unguessable name could be used. If this is even possible I don't know and given
+that you also require root permissions the conclusion is NOT to run a chess 
+server on a multi-user system if anyone can run PHP scripts there unless you 
+trust all other users. Pretty much talk for a simple "Don't do it", right? :-) 
+If anyone with Apache experience knows whether this can work and how please 
+mail me (contact form at LGames, see URL below). Thanks!
+
+*******
+Credits
+*******
+
+Chessmen graphics: clker.com (Public Domain)
+
+Michael Speck
+http://lgames.sf.net

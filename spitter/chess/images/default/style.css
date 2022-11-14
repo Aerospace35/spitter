@@ -1,0 +1,288 @@
+body,textarea,input,select {
+	font-family: Arial;
+	color: #00FF33;
+	background-color: black;
+	border: 1px solid #00FF33;
+	font-size: normal;
+}
+body {
+	background-color: #000000;
+	margin: 0;
+}
+
+/* font-size normal is totally ignored in Firefox so set
+ * large to prevent too small buttons */
+input,select {
+	font-size: large;
+	background-color: #000000;
+	border: 2px solid #00FF33;
+}
+
+.mainwrapper {
+	width: 100%;
+	text-align: center;
+}
+
+.helpwrapper {
+	width: 90%;
+	display: inline-block;
+	text-align: left;
+}
+
+main {
+	display: inline-block;
+}
+
+header {
+	color: #00FF33;
+	font-size: x-large;
+	font-weight: bold;
+	padding: 10px;
+}
+
+nav {
+	padding: 10px;
+}
+
+footer {
+	display: inline-block;
+	width: 90%;
+}
+
+a {
+	font-family: Arial; 
+}
+
+A:link,A:visited,A:active { 
+	color: #00FF33;
+	text-decoration: none;
+}
+
+A:hover {
+	color: #00FF33;
+	text-decoration: underline;
+}
+
+A.tiny:link,A.tiny:visited,A.tiny:active { 
+	font-size: small; 
+	color: #00FF33;
+	text-decoration: none;
+}
+
+A.tiny:hover {
+	font-size: small;
+	color: #00FF33;
+	text-decoration: underline;
+}
+
+A.head:link,A.head:visited,A.head:active { 
+	color: #00FF33;
+	text-decoration: none;
+}
+
+A.head:hover {
+	color: #00FF33;
+	text-decoration: underline;
+}
+
+.subtitle {
+	font-weight: bold;
+}
+
+.row {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.leftcredits {
+	font-size: small;
+	text-align: left;
+	float: left;
+	width: 50%;
+}
+.rightcredits {
+	text-align: right;
+	font-size: small;
+	float: right;
+	width: 50%;
+}
+
+.large {
+	font-size: large; 
+}
+
+.warning {
+	color: #00FF33; 
+}
+
+.tiny {
+	font-size: small;
+}
+
+.info {
+	color: ##00FF33;
+}
+
+.boardFrame {
+	background-color: #000000;
+	padding: 0;
+}
+
+.boardCoord {
+	color: #777799;
+	font-weight: bold;
+	text-align: center;
+	padding: 1;
+}
+
+.board {
+	width: 100%;
+	border-spacing: 0;
+	padding: 0;
+}
+
+.boardTileWhite {
+	background-color: #00FF33;
+	padding: 0;
+}
+
+.boardTileBlack {
+	background-color: black;
+	padding: 0;
+}
+
+.figure {
+	width: 100%;
+}
+.lostfigure {
+	width: 6%;
+}
+.tdmarker {
+	text-align: right;
+}
+.marker {
+	width:80%;
+}
+
+.textFrame {
+	background-color: black;
+	border: #00FF33 solid 1px;
+	padding: 4px;
+	text-align: left;
+	border-radius: 4px;
+}
+
+.textBox {
+	background-color: black;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.textBoxHighlight {
+	background-color: black;
+}
+
+.releaseInfo {
+	text-align: left;
+	width: 500;
+	color: #0000bb;
+}
+
+.pconly {
+	display: none;
+}
+
+.col50 {
+	width: 100%;
+}
+
+.sctn_notes {
+	text-align: left;
+	padding: 10px;
+}
+
+.sctn_command {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.sctn_board {
+	margin: 0px;
+	padding: 0px;
+}
+
+.sctn_chat {
+	padding: 10px;
+	clear: both;
+	text-align: left;
+}
+
+.textinput {
+	width: 100%;
+	border: 1px #00FF33 solid;
+	background-color: #000000;
+	border-radius: 3px;
+}
+
+.clearall {
+	clear: both;
+}
+
+.inlineblock {
+	display: inline-block;
+}
+
+.boardtitle {
+	margin-top: 0px;
+}
+
+.chatmessage {
+	margin: 3px;
+	padding: 3px;
+	font-style: italic;
+	background-color: #000000;
+	border-radius: 4px;
+}
+
+a.playbutton {
+	font-size: large;
+	background-color: #000000;
+	border-radius: 3px;
+	color: #00FF33;
+	font-weight: bold;
+	padding: 5px;
+	margin: 4px;
+	display: inline-block;
+}
+a.playbutton:hover {
+	text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+
+.pconly {
+	display: inline-block;
+}
+
+.col50 {
+	width: 50%;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.boardtitle {
+	font-size: larger;
+	margin-top: 10px;
+}
+
+.mainwrapper {
+	margin: auto;
+	width: 60%;
+}
+
+.boardFrame {
+	padding: 4px;
+}
+
+}
